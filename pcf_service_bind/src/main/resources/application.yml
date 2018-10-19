@@ -1,25 +1,31 @@
 spring:
   profiles:
-    active: cloud
+    active: local
  
 ---        
 spring:
    profiles: local
    jpa:
+      properties.hibernate.jdbc.lob.non_contextual_creation: true
+      show-sql: true
       hibernate:
-         ddl-auto: none
+         ddl-auto: create
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
    datasource:
-      url: jdbc:postgresql://localhost:5432/test
-      username: postgresql
-      password: postgresql
+      url: jdbc:postgresql://pellefant.db.elephantsql.com:5432/qvyicnfy
+      username: qvyicnfy
+      password: tPBLJ_TLnDS5PElKY619DDqP63CtEwEm
    
 ---        
 spring:
    profiles: cloud
    jpa:
+      show-sql: true
       hibernate:
          ddl-auto: create
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
    datasource:
-      url: ${vcap.services.elephantdb.credentials.jdbcUrl}
-      username: ${vcap.services.elephantdb.credentials.username}
-      password: ${vcap.services.elephantdb.credentials.password}
+      driverClassName: org.postgresql.Driver
+      url: jdbc:postgresql://pellefant.db.elephantsql.com:5432/qvyicnfy
+      username: qvyicnfy
+      password: tPBLJ_TLnDS5PElKY619DDqP63CtEwEm
