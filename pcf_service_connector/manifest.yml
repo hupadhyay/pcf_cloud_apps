@@ -1,0 +1,19 @@
+---
+
+applications:
+ - name: megadevice
+   path: target/pcf_service_connector-0.0.1-SNAPSHOT.jar
+   memory: 1G  
+   env:
+      SPRING_PROFILES_ACTIVE: cloud
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'  
+
+   services:
+      - elephantdb
+   
+buildpack: https://github.com/cloudfoundry/java-buildpack.git
+
+env:
+    JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+   
+ 

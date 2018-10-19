@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: cloud
+ 
+---        
+spring:
+   profiles: cloud
+   jpa:
+      hibernate:
+         ddl-auto: create
+   datasource:
+      url: jdbc:postgresql://localhost:5432/test
+      username: postgresql
+      password: postgresql
+   

@@ -1,0 +1,25 @@
+spring:
+  profiles:
+    active: cloud
+ 
+---        
+spring:
+   profiles: local
+   jpa:
+      hibernate:
+         ddl-auto: none
+   datasource:
+      url: jdbc:postgresql://localhost:5432/test
+      username: postgresql
+      password: postgresql
+   
+---        
+spring:
+   profiles: cloud
+   jpa:
+      hibernate:
+         ddl-auto: create
+   datasource:
+      url: ${vcap.services.elephantdb.credentials.jdbcUrl}
+      username: ${vcap.services.elephantdb.credentials.username}
+      password: ${vcap.services.elephantdb.credentials.password}
