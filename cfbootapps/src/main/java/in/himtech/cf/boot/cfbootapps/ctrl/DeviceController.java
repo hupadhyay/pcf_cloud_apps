@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import in.himtech.cf.boot.cfbootapps.model.Device;
+import in.himtech.cf.boot.cfbootapps.model.Message;
 import in.himtech.cf.boot.cfbootapps.repo.DeviceRepo;
 
 @RestController
@@ -42,6 +43,12 @@ public class DeviceController {
 	private ResponseEntity<List<Device>> getAllDevice() {
 		List<Device> deviceEntity = repoDevice.findAll();
 		return new ResponseEntity<List<Device>>(deviceEntity, HttpStatus.CREATED);
+	}
+	
+	@GetMapping(value="/message}")
+	private ResponseEntity<Message> getMessageFromProperty() {
+		Message message = new Message();
+		return new ResponseEntity<Message>(message, HttpStatus.OK);
 	}
 	
 }

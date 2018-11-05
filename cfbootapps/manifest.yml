@@ -4,7 +4,7 @@ applications:
  - name: device
    buildpack: https://github.com/cloudfoundry/java-buildpack.git
    path: target/cfbootapps-0.0.1-SNAPSHOT.jar
-   memory: 1G
+   memory: 720M
    env:
       SPRING_PROFILES_ACTIVE: cloud
    services:
